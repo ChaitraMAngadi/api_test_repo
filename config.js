@@ -6,6 +6,5 @@ const config={
         database:"absolute_new",
         connectionTimeout:60000
     },
-    // listPerPage:25,
 };
 module.exports = config;
