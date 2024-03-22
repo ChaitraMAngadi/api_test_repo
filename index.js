@@ -10,13 +10,13 @@ app.use(
     })
 );
 
-app.get("/",(req, res) =>{
-    res.json({
-        message:"Product-list"
-    });
-});
+// app.get("/",(req, res) =>{
+//     res.json({
+//         message:"Product-list"
+//     });
+// });
 
-app.use("/product-list",productListRouter);
+app.use("/",productListRouter);
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
