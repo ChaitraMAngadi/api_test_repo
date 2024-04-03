@@ -1,7 +1,11 @@
 const express = require("express");
 const app= express();
 const port= 4000;
-const productListRouter = require("./routes/productlist")
+const bannersRouter = require('./routes/banners');
+const mainCategoriesRouter = require('./routes/maincategories');
+const productListRouter = require("./routes/productlist");
+const partnersListRouter= require("./routes/partnerslist");
+const whatwedodataRouter = require("./routes/whatwedo")
 
 app.use(express.json());
 app.use(
@@ -10,13 +14,24 @@ app.use(
     })
 );
 
-// app.get("/",(req, res) =>{
-//     res.json({
-//         message:"Product-list"
-//     });
-// });
+app.get("/",(req, res) =>{
+    res.json({
+        message:"absolute-mens"
+    });
+});
 
-app.use("/",productListRouter);
+app.use("/banners",bannersRouter);
+
+app.use("/main-categories",mainCategoriesRouter);
+
+app.use("/product-list",productListRouter);
+
+app.use("/partners-list",partnersListRouter);
+
+app.use("/what-we-do",whatwedodataRouter);
+
+
+
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
