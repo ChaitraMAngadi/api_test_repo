@@ -4,7 +4,7 @@ const config={
         user:"root",
         password:"",
         database:"absolute_new",
-        connectionTimeout:1200000
+        
     },
 };
 module.exports = config;

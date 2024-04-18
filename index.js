@@ -5,7 +5,15 @@ const bannersRouter = require('./routes/banners');
 const mainCategoriesRouter = require('./routes/maincategories');
 const productListRouter = require("./routes/productlist");
 const partnersListRouter= require("./routes/partnerslist");
-const whatwedodataRouter = require("./routes/whatwedo")
+const whatWeDoDataRouter = require("./routes/whatwedo");
+const hairCareRouter= require("./routes/haircare");
+const faceCareRouter= require("./routes/facecare");
+const bodyCareRouter= require("./routes/bodycare");
+const beardCareRouter= require("./routes/beardcare");
+const healthAndWellnessRouter = require("./routes/healthandwellness");
+const fitnessRouter = require("./routes/fitness");
+const adminDetailsRouter = require("./routes/admindetails");
+
 
 app.use(express.json());
 app.use(
@@ -28,7 +36,21 @@ app.use("/product-list",productListRouter);
 
 app.use("/partners-list",partnersListRouter);
 
-app.use("/what-we-do",whatwedodataRouter);
+app.use("/what-we-do",whatWeDoDataRouter);
+
+app.use("/hair-care",hairCareRouter);
+
+app.use("/face-care",faceCareRouter);
+
+app.use("/body-care",bodyCareRouter);
+
+app.use("/beard-care",beardCareRouter);
+
+app.use("/health-and-wellness",healthAndWellnessRouter);
+
+app.use("/fitness",fitnessRouter);
+
+app.use("/admin-details",adminDetailsRouter);
 
 
 
