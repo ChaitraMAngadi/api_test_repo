@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const bannerlist = require('../services/banners');
+const bannerProduct = require('../services/bannerproducts');
 
-/*GET banner details. */
-router.get('/', async function( req, res, next){
+/*GET banner product List. */
+router.get('/:id', async function( req, res, next){
     try{
-      res.json(await bannerlist.getBanners(req));
+      res.json(await bannerProduct.getBannerproduct(req.params.id,req.body));
   
     } 
     catch(err){

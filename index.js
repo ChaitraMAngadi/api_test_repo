@@ -13,6 +13,21 @@ const beardCareRouter= require("./routes/beardcare");
 const healthAndWellnessRouter = require("./routes/healthandwellness");
 const fitnessRouter = require("./routes/fitness");
 const adminDetailsRouter = require("./routes/admindetails");
+const bannerProductRouter = require("./routes/bannerproducts");
+const allSubCategoriesRouter = require("./routes/allsubcategories");
+const questionariesRouter = require("./routes/questionaries");
+const adressRouter = require("./routes/address");
+const cartRouter = require("./routes/cart");
+const myProfileRouter = require("./routes/myprofile");
+const orderDetailsRouter = require("./routes/orderdetails");
+const productRouter = require("./routes/product");
+const skipActionRouter = require("./routes/skipaction");
+const submitActionRouter = require("./routes/submitaction");
+const wishListRouter = require("./routes/whishlist");
+const addToCartRouter = require("./routes/addtocart");
+const addToWishListRouter = require("./routes/addtowishlist");
+const relatedProductsRouter = require("./routes/relatedproducts");
+
 
 
 app.use(express.json());
@@ -52,6 +67,33 @@ app.use("/fitness",fitnessRouter);
 
 app.use("/admin-details",adminDetailsRouter);
 
+app.use("/banner-products",bannerProductRouter);
+
+app.use("/sub-categories", allSubCategoriesRouter);
+
+app.use("/questionaries",questionariesRouter);
+
+app.use("/adress", adressRouter);
+
+app.use("/cart-details", cartRouter);
+
+app.use("/my-profile",myProfileRouter);
+
+app.use("/order-details",orderDetailsRouter);
+
+app.use("/product", productRouter);
+
+app.use("/skip-action", skipActionRouter);
+
+app.use("/submit-action",submitActionRouter);
+
+app.use("/wishlist",wishListRouter);
+
+app.use("/add-to-cart",addToCartRouter);
+
+app.use("/add-to-wishlist",addToWishListRouter);
+
+app.use("/related-products",relatedProductsRouter);
 
 
 

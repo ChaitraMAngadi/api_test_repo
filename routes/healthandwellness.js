@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const healthandwellnessproductlist = require('../services/healthandwellness');
 
-/*GET hair care products List. */
+/*GET health and wellness products List. */
 router.get('/', async function( req, res, next){
     try{
       res.json(await healthandwellnessproductlist.getHealtAndWellnesProductList(req));

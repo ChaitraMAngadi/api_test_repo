@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productlist = require('../services/productlist');
 
-/*GET programming languages. */
+/*GET list of products. */
 router.get('/', async function( req, res, next){
   try{
     res.json(await productlist.getMultiple(req));

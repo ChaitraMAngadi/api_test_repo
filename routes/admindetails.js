@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const adminDetails = require('../services/admindetails');
 
-/*GET partners List. */
+/*GET admin details. */
 router.get('/', async function( req, res, next){
     try{
       res.json(await adminDetails.getPartnersList(req));
