@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const partnersList = require('../services/partnerslist');
+const partnersList = require('../services/partners_list');
 
 /*GET partners List. */
 router.get('/', async function( req, res, next){

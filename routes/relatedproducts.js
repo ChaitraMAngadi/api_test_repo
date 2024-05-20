@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const relatedProducts= require('../services/relatedproducts');
+const relatedProducts= require('../services/related_products');
 
 
   router.get('/:cat_id', async function( req, res, next){

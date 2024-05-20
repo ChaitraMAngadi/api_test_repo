@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bannerProduct = require('../services/bannerproducts');
+const bannerProduct = require('../services/banner_products');
 
 /*GET banner product List. */
 router.get('/:id', async function( req, res, next){

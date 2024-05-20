@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const skipAction= require('../services/skipaction');
+const skipAction= require('../services/skip_action');
 
 
   router.get('/:cat_id/:sub_cat_id', async function( req, res, next){

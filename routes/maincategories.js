@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mainCategoriesList = require('../services/maincategories');
+const mainCategoriesList = require('../services/main_categories');
 
 /*GET Main Categories List. */
 router.get('/', async function( req, res, next){

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fitnessproductlist = require('../services/fitness');
+const fitnessproductlist = require('../services/fittness');
 
 /*GET fitness products List. */
 router.get('/', async function( req, res, next){

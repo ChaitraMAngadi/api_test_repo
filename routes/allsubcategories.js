@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const allSubCategories = require('../services/allsubcategories');
+const allSubCategories = require('../services/all_subcategories');
 
 /*GET all Sub categories List. */
 router.get('/', async function( req, res, next){

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const submitAction= require('../services/submitaction');
+const submitAction= require('../services/submit_action');
 
 
   router.get('/:cat_id/:sub_cat_id/:ques_id/:option_id', async function( req, res, next){

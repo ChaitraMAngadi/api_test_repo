@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const myProfile = require('../services/myprofile');
+const myProfile = require('../services/user_profile');
 
   router.get('/:user_id', async function( req, res, next){
     try{

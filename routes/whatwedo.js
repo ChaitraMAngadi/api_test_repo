@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const whatwedodata = require('../services/whatwedo');
+const whatwedodata = require('../services/what_we_do');
 
 /*GET what we do details. */
 router.get('/', async function( req, res, next){

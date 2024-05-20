@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const addToWishList = require('../services/addtowishlist');
+const addToWishList = require('../services/add_to_wishlist');
 
 router.get('/:id', async function( req, res, next){
     try{

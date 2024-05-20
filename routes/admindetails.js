@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const adminDetails = require('../services/admindetails');
+const adminDetails = require('../services/admin_details');
 
 /*GET admin details. */
 router.get('/', async function( req, res, next){
