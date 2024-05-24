@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const db = require('../services/db');
 const config =  require('../config');
 const helper = require("../helper");
 
 router.post('/register', async (req, res) =>{
     try{
-        const {first_name,last_name,email,phone,password } = req.body;                                                                                                                                                                                                                                                                                                                   
+        const {first_name,last_name,email,phone,password } = req.body;
+                                                                                                                                                                                                                                                                                                                           
         const hashedPassword = await bcrypt.hash(password, 10);
         const rows = await db.query(
             'INSERT into users (first_name,last_name,email,phone,password) VALUES (?,?,?,?,?)',
@@ -38,7 +39,7 @@ router.post('/login',async (req, res) => {
         if(!isPasswordMatch){
             return res.status(401).json({message:'Invalid user'});
         }
-        const token = jwt.sign({userId : user.id}, 'your-sectrat-key',{expiresIn:'2h'});
+        const token = jwt.sign({userId : user.id}, process.env.JWT_SECRET);
         res.json({token});
     }
     catch(error){

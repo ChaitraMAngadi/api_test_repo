@@ -1,9 +1,17 @@
 const express = require("express");
+const dotenv = require('dotenv');
+const https = require('follow-redirects').https;
+const qs = require('querystring');
+require("./services/db");
+
+dotenv.config();
+
 const app= express();
 const port= 4000;
 
 const authRouter = require('./routes/auth');
 const appRouter = require("./routes/app.router");
+const loginRouter = require("./routes/loginotp");
 
 
 
@@ -24,6 +32,8 @@ app.get("/",(req, res) =>{
 app.use("/auth",authRouter);
 
 app.use("/app",appRouter);
+
+app.use("/login",loginRouter);
 
 
 

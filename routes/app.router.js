@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+const { signUpValidation } = require("../helper/validator");
+const userController = require("../controller/user_controller");
+const loginController = require("../controller/login_controller");
+
 const addressController = require("../controller/address");
 const addToCartController = require("../controller/add_to_cart");
 const addToWishlistController = require("../controller/add_to_wishlist");
@@ -30,6 +34,9 @@ const whatWeDoController = require("../controller/what_we_do");
 const whishlistController = require("../controller/whishlist");
 
 
+
+router.post('/sign-up',signUpValidation,userController.register);
+router.post('/log-in', loginController.login),
 
 router.get("/address/:user_id",addressController.address);
 router.get("/addtocart/:user_id/:product_id",addToCartController.addToCart);
