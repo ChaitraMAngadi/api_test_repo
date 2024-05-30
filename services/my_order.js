@@ -2,9 +2,10 @@ const db = require('./dbpromise');
 const helper = require('../helper');
 const config = require('../config');
 
-async function getPartnersList( ){
+async function myorders(user_id ){
     const rows = await db.query(
-      `select * from our_partners;`
+      `select * from orders where user_id='${user_id}' and payment_status=1 group by session_id order by id desc`
+
     ) ; 
   const data = helper.emptyOrRows(rows);
   
@@ -16,6 +17,6 @@ async function getPartnersList( ){
   
 
   module.exports={
-    getPartnersList
+    myorders
 
 }

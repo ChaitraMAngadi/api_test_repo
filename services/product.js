@@ -1,5 +1,5 @@
 
-const db = require('./db');
+const db = require('./dbpromise');
 const helper = require('../helper');
 const config = require('../config');
 

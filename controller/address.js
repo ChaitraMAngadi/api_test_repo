@@ -2,7 +2,7 @@ const addressService = require("../services/address");
 
 exports.address = async (req, res, next) => {
     try{
-        res.json(await addressService.getAddress(req.params.user_id,req.body));
+       await res.json(await addressService.getAddress(req.params.user_id,req.body));
         
       } 
       catch(err){

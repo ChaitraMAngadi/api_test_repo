@@ -1,10 +1,10 @@
-const db = require('./db');
+const db = require('./dbpromise');
 const helper = require('../helper');
 const config = require('../config');
 
-async function getAllOdersList(user_id ){
+async function getAllUserOdersList(user_id ){
     const rows = await db.query(
-      `select * from orders where id='${user_id}'`
+      `select * from orders where user_id='${user_id}'`
 
     ) ; 
   const data = helper.emptyOrRows(rows);
@@ -17,6 +17,6 @@ async function getAllOdersList(user_id ){
   
 
   module.exports={
-    getAllOdersList
+    getAllUserOdersList
 
 }

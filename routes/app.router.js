@@ -2,14 +2,22 @@ const express = require("express");
 const router = express.Router();
 
 const { signUpValidation } = require("../helper/validator");
+const { loginEmailValidation } = require("../helper/validator");
+const { loginPhoneValidation } = require("../helper/validator");
+
+
 const userController = require("../controller/user_controller");
 const loginController = require("../controller/login_controller");
+const verifyOtpController = require("../controller/otp_verify");
 
 const addressController = require("../controller/address");
 const addToCartController = require("../controller/add_to_cart");
 const addToWishlistController = require("../controller/add_to_wishlist");
 const adminDetailsController = require("../controller/admin_details");
 const allOrderListController = require("../controller/all_order_list");
+const myOrderController = require("../controller/my_order");
+const orderListController = require("../controller/order_list");
+const ongoingOrdersController = require("../controller/on_going_orders");
 const allSubcategoriesController = require("../controller/all_subcategories");
 const bannerProductsController = require("../controller/banner_products");
 const bannerController = require("../controller/banners");
@@ -36,13 +44,28 @@ const whishlistController = require("../controller/whishlist");
 
 
 router.post('/sign-up',signUpValidation,userController.register);
-router.post('/log-in', loginController.login),
+router.post('/log-in/email-otp',loginEmailValidation, loginController.loginWithMail),
+router.post('/log-in/phone-otp',loginPhoneValidation, loginController.loginWithPhone),
+router.post('/verify-otp', verifyOtpController.verifyotp),
+
+router.post('/log-in', loginController.loginWithOtp),
+
+
 
 router.get("/address/:user_id",addressController.address);
 router.get("/addtocart/:user_id/:product_id",addToCartController.addToCart);
 router.get("/addtowishlist/:id",addToWishlistController.addToWishlist);
 router.get("/admindetails",adminDetailsController.adminDetails);
 router.get("/allorders/:user_id",allOrderListController.allOrderList);
+router.get("/myorder/:user_id",myOrderController.myOrder);
+router.get("/ongoingorders/:user_id",orderListController.userOngoingOrders);
+router.get("/completedorders/:user_id",orderListController.completedOrders);
+router.get("/canceledorders/:user_id",orderListController.canceledOrders);
+router.get("/returnorders/:user_id",orderListController.returnOrders);
+router.get("/pendingorders/:user_id",ongoingOrdersController.pendingOrders);
+router.get("/acceptedgorders/:user_id",ongoingOrdersController.acceptedOrders);
+router.get("/assignedtocourierorders/:user_id",ongoingOrdersController.assignedToCourierOrders);
+router.get("/shippedorders/:user_id",ongoingOrdersController.shippedOrders);
 router.get("/allsubcategories",allSubcategoriesController.allSubCategories);
 router.get("/subcategoriesById/:id",allSubcategoriesController.SubCategoriesById);
 router.get("/bannerproducts/:id",bannerProductsController.bannerProduct);

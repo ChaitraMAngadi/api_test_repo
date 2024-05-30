@@ -1,10 +1,10 @@
 const nodemailer = require('nodemailer');
-const { SMTP_MAIL, SMTP_PASSWORD, SMTP_PORT} = process.env;
+const { SMTP_MAIL, SMTP_PASSWORD, SMTP_PORT, SMTP_HOST} = process.env;
 
-const sendMail = async(email, mailSubject, content) =>{
+const sendMail = async(email, mailSubject) =>{
     try{
         const transport = nodemailer.createTransport({
-            host : 'smtp.gmail.com',
+            host : SMTP_HOST,
             port : SMTP_PORT,
             secure:false,
             requireTLS: true,
@@ -17,8 +17,8 @@ const sendMail = async(email, mailSubject, content) =>{
         const mailOptions = {
             from : SMTP_MAIL,
             to: email,
-            subject: mailSubject,
-            html: content
+            subject: "LOGIN OTP",
+            html: mailSubject
         }
 
         transport.sendMail(mailOptions , function(err, info){

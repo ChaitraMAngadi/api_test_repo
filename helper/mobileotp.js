@@ -1,3 +1,4 @@
+const { response } = require("express");
 
 
 const baseUrl = 'https://2factor.in';
@@ -28,13 +29,11 @@ const sendOtp = async(phone, otp, otp_message) =>{
 
         const data = await response.json();
         console.log(data);
-        res.status(200).json({ success: true, message: 'OTP sent successfully', data });
-        db.query(
-            `UPDATE users set otp= ? where phone = ? `,[otp,phone]
-        )
+        // response.status(200).send({ msg: 'OTP sent successfully', data });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: 'Failed to send OTP', error: error.message });
+        // response.status(500).send
+        // ({  msg: 'Failed to send OTP' });
     }
 
 }
