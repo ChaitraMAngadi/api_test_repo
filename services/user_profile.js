@@ -12,7 +12,7 @@ async function getUserProfile(user_id ){
   return{
       data,
   }
-  
+   
   }
   
 
