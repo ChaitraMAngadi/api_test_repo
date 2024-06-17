@@ -13,7 +13,7 @@ const verifyotp = (req, res) => {
             }
             else{
               return res.status(506).send({
-                msg:" failed"
+                msg:"invalid otp"
                })
     
             }
